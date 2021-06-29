@@ -18,7 +18,7 @@ Si vous possédez déjà nodeJS veuillez passez à la section suivante.
 <span>Cela créera un dossier <strong>node_modules</strong> et y téléchargera toute les dépendances que le projet utilise.</span>
 
 <h2>CRÉATION CONFIG.JSON</h2>
-<span>À la racine de votre projet veuillez crée un fichier que vous denez nommer <code>config.json</code></span></br>
+<span>À la racine du projet veuillez créé un fichier que vous devez nommer <code>config.json</code></span></br>
 <span>Ensuite ouvrez votre fichier et remplissez le comme ceci:</span></br>
 <span>
 {</br>
@@ -26,3 +26,10 @@ Si vous possédez déjà nodeJS veuillez passez à la section suivante.
   "token": "token_de_votre_bot_qui_permettra_de_l'executer"</ul>
 }
 </span>
+
+<h2>ÉXÉCUTION DU BOT</h2>
+<span>Sur votre terminal windows ou ubuntu allez à la racine de votre projet et faites <code>npm run start</code></span></br>
+
+<h2>INFORMATIONS</h2>
+<span>D'autres commandes viendront au fur et a mesures n'hésitez pas a check souvent le projet !</span></br>
+<strong>Voila ! le bot est enfin lancé sur votre serveur discord !</strong>
