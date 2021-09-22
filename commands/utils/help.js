@@ -5,7 +5,7 @@ module.exports = {
 	description: 'Liste toutes mes commandes ou des informations sur une commande spécifique.',
     usage: '[commands name]',
     cooldown: 0,
-	aliases: ['h', "commands"],
+	aliases: ['h'],
 	async execute(message, args, client) {
 		const data = [];
 		const { commands } = message.client;
@@ -48,32 +48,17 @@ module.exports = {
         //.setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
         .setTimestamp()
         .setFooter(`${client.user.username}`, client.user.displayAvatarURL({ dynamic: true }));
-        if (command.description) {
-            exampleEmbed.addFields(
-                { name: `Description`, value: command.description + "\n"},
-            );
-        }
 
-        exampleEmbed.addFields(
-            { name: `Info`, value: "[] optionnel, <> obligatoire" + "\n"},
-        );
+        if (command.description) exampleEmbed.addFields({ name: `Description`, value: command.description + "\n"},);
 
-        if (command.usage) {
-            exampleEmbed.addFields(
-                { name: "Utilisation", value: prefix + command.name + " " + command.usage + "\n"}
-            );
-        }
+        exampleEmbed.addFields({ name: `Info`, value: "[] optionnel, <> obligatoire" + "\n"},);
 
-        if (command.aliases) {
-            exampleEmbed.addFields(
-                { name: "Aliases", value: prefix + command.aliases.join('\n' + prefix) + "\n"}
-            );
-        }
-        if (command.cooldown || command.cooldown === 0) {
-            exampleEmbed.addFields(
-                { name: "Cooldown", value: command.cooldown + " seconds"}
-            );
-        }
+        if (command.usage) exampleEmbed.addFields({ name: "Utilisation", value: prefix + command.name + " " + command.usage + "\n"});
+
+        if (command.aliases) exampleEmbed.addFields({ name: "Aliases", value: prefix + command.aliases.join('\n' + prefix) + "\n"});
+
+        if (command.cooldown || command.cooldown === 0) exampleEmbed.addFields({ name: "Cooldown", value: command.cooldown + " seconds"});
+
         message.channel.send(exampleEmbed);
     },
 };

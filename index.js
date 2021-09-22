@@ -7,7 +7,6 @@ client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-//const eventFilesVoice = fs.readdirSync('./events/Voice').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
 	if (event.once) {
@@ -16,15 +15,6 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args, client));
 	}
 }
-
-/*for (const file of eventFilesVoice) {
-	const event = require(`./events/Voice/${file}`);
-	if (event.once) {
-		ConnectedBot(client).once(event.name, (...args) => event.execute(...args, client));
-	} else {
-		ConnectedBot(client).on(event.name, (...args) => event.execute(...args, client));
-	}
-} */
 
 const getAllFiles = function(dirPath, arrayOfFiles) {
     files = fs.readdirSync(dirPath)

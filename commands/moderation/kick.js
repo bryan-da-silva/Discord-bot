@@ -19,8 +19,8 @@ module.exports = {
         if (!User) return message.channel.send("Veuillez mentionnez une personne à ban !");
 
         const KickUser = message.guild.member(User);
-
-        if (message.guild.member(message.author).roles.highest.position > KickUser.roles.highest.position) {
+        let permKick = message.channel.permissionsFor(message.author);
+        if (message.guild.member(message.author).roles.highest.position > KickUser.roles.highest.position && permKick.has(this.permissions)) {
             let raison = args.slice(1).join(' ') || ` Kick par ${message.author.tag}`;
             KickUser.kick(raison).then(() => {
                 const exampleEmbed = new Discord.MessageEmbed()

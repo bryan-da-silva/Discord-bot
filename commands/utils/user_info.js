@@ -77,10 +77,9 @@ module.exports = {
             { name: 'Username', value: users.username, inline: true},
             { name: "Date de création du compte", value: dateformat(creation, "ddd. dd mmmm yyyy à HH:MM:ss")},
             { name: "Date d'arrivé", value: dateformat(arrive, "ddd. dd mmmm yyyy à HH:MM:ss")},
-            { name: "Roles", value: member.roles.cache.map(role => "<@&" + role.id + ">").slice(0, -1).join(", ")},
+            { name: "Roles", value: member.roles.cache.map(role => "<@&" + role.id + ">").join(", ")},
             { name: "Bot", value: users.bot}
         )
-        //.addField('Inline field title', 'Some value here', true) */
         //.setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))
         .setTimestamp()
         .setFooter(`${client.user.username}`, client.user.displayAvatarURL({ dynamic: true }));
